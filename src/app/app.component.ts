@@ -16,6 +16,7 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('greenBox') greenBox!: ElementRef;
   @ViewChild('redBox') redBox!: ElementRef;
   @ViewChild('yellowBox') yellowBox!: ElementRef;
+  @ViewChild('staggerBox') staggerBox!: ElementRef;  
 
   // gsap - timeline declaration and initialization
   tl = gsap.timeline({
@@ -63,7 +64,7 @@ export class AppComponent implements AfterViewInit {
       yoyo: true,
     });
 
-    // gsap - timeline Demo
+    // gsap - timeline Demo    
     this.tl.to(this.yellowBox.nativeElement, { 
       x: 250,
       rotation: 360,
@@ -89,8 +90,26 @@ export class AppComponent implements AfterViewInit {
       duration: 2,
       ease: 'back.inOut'
     });
+
+    //gsap - stagger Demo
+    gsap.to('.stagger-box', { 
+      y: 200,
+      borderRadius: '100%',      
+      rotation: 360,      
+      repeat: -1,
+      yoyo: true,
+      //stagger: 0.5,
+      stagger: {
+        amount: 1.5,
+        grid: [2, 1],
+        axis: 'y',
+        ease: 'circ.inOut',
+        from: 'end'   //'center'
+      }
+    });
   }
 
+  // #region - Timeline methods
   playPause() {
     if(this.tl.paused()) {
       this.tl.play();
@@ -119,4 +138,6 @@ export class AppComponent implements AfterViewInit {
   restart() {
     this.tl.restart();
   }
+
+  // #endregion - Timeline methods
 }

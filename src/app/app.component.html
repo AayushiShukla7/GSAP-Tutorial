@@ -17,19 +17,40 @@
 </div>
 
 <h5 class="mt-5 pl-5">[4] gsap.timeline() Demo -</h5>
+<div>
+  <div class="pt-2 pl-5">
+    <button id="playpause" class="btn btn-primary mr-5" (click)="playPause()">Play/Pause</button>
 
-<div class="pt-2 pl-5">
-  <button id="playpause" class="btn btn-primary mr-5" (click)="playPause()">Play/Pause</button>
+    <button id="play" class="btn btn-primary mx-2" (click)="play()">Play</button>
+    <button id="pause" class="btn btn-primary mx-2" (click)="pause()">Pause</button>
+    <button id="resume" class="btn btn-primary mx-2" (click)="resume()">Resume</button>
+    <button id="reverse" class="btn btn-primary mx-2" (click)="reverse()">Reverse</button>
+    <button id="restart" class="btn btn-primary mx-2" (click)="restart()">Restart</button>
+  </div>
 
-  <button id="play" class="btn btn-primary mx-2" (click)="play()">Play</button>
-  <button id="pause" class="btn btn-primary mx-2" (click)="pause()">Pause</button>
-  <button id="resume" class="btn btn-primary mx-2" (click)="resume()">Resume</button>
-  <button id="reverse" class="btn btn-primary mx-2" (click)="reverse()">Reverse</button>
-  <button id="restart" class="btn btn-primary mx-2" (click)="restart()">Restart</button>
+  <div class="mt-4 pl-5">  
+    <div #yellowBox class="w-20 h-20 bg-yellow-500 rounded-lg">
+    </div>
+  </div>
 </div>
 
-<div class="mt-4 pl-5">  
-  <div #yellowBox class="w-20 h-20 bg-yellow-500 rounded-lg">
+<div class="mt-5 py-4"></div>
+
+<h5 class="mt-5 pl-5">[5] gsap.stagger() Demo -</h5>
+<div class="flex gap-3 pt-2 pl-5 mb-5">  
+  <div #staggerBox class="w-20 h-20 bg-indigo-200 rounded-lg stagger-box">
+  </div>
+  <div #staggerBox class="w-20 h-20 bg-indigo-300 rounded-lg stagger-box">
+  </div>
+  <div #staggerBox class="w-20 h-20 bg-indigo-400 rounded-lg stagger-box">
+  </div>
+  <div #staggerBox class="w-20 h-20 bg-indigo-500 rounded-lg stagger-box">
+  </div>
+  <div #staggerBox class="w-20 h-20 bg-indigo-600 rounded-lg stagger-box">
+  </div>
+  <div #staggerBox class="w-20 h-20 bg-indigo-700 rounded-lg stagger-box">
+  </div>
+  <div #staggerBox class="w-20 h-20 bg-indigo-800 rounded-lg stagger-box">
   </div>
 </div>
 
