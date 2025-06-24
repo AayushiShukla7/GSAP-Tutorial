@@ -19,11 +19,13 @@
 <h5 class="mt-5 pl-5">[4] gsap.timeline() Demo -</h5>
 
 <div class="pt-2 pl-5">
-  <button id="play" class="btn btn-primary mr-2">Play</button>
-  <button id="pause" class="btn btn-primary mx-2">Pause</button>
-  <button id="resume" class="btn btn-primary mx-2">Resume</button>
-  <button id="reverse" class="btn btn-primary mx-2">Reverse</button>
-  <button id="restart" class="btn btn-primary mx-2">Restart</button>
+  <button id="playpause" class="btn btn-primary mr-5" (click)="playPause()">Play/Pause</button>
+
+  <button id="play" class="btn btn-primary mx-2" (click)="play()">Play</button>
+  <button id="pause" class="btn btn-primary mx-2" (click)="pause()">Pause</button>
+  <button id="resume" class="btn btn-primary mx-2" (click)="resume()">Resume</button>
+  <button id="reverse" class="btn btn-primary mx-2" (click)="reverse()">Reverse</button>
+  <button id="restart" class="btn btn-primary mx-2" (click)="restart()">Restart</button>
 </div>
 
 <div class="mt-4 pl-5">  

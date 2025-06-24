@@ -16,9 +16,16 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('greenBox') greenBox!: ElementRef;
   @ViewChild('redBox') redBox!: ElementRef;
   @ViewChild('yellowBox') yellowBox!: ElementRef;
+
+  // gsap - timeline declaration and initialization
+  tl = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 1,
+    yoyo: true
+  });
     
   ngAfterViewInit() {
-    //gsap.registerPlugin();
+    gsap.registerPlugin();
 
     // gsap - to Demo
     gsap.to(this.blueBox.nativeElement, { 
@@ -57,27 +64,59 @@ export class AppComponent implements AfterViewInit {
     });
 
     // gsap - timeline Demo
-    const tl = gsap.timeline({
-      repeat: -1,
-      repeatDelay: 1,
-      yoyo: true
-    });
-
-    tl.to(this.yellowBox.nativeElement, { 
+    this.tl.to(this.yellowBox.nativeElement, { 
       x: 250,
       rotation: 360,
       borderRadius: '100%',
       duration: 2,
-      ease: 'back.inOut'
+      ease: 'elastic'
     });
 
-    tl.to(this.yellowBox.nativeElement, {
+    this.tl.to(this.yellowBox.nativeElement, {
+      y: 100,
+      scale: 2,
+      rotation: 360,
+      borderRadius: '100%',
+      duration: 1,
+      ease: 'slow'
+    });
+
+    this.tl.to(this.yellowBox.nativeElement, {
       x: 500,
       scale: 1,
       rotation:360,
       borderRadius: '8px',
       duration: 2,
       ease: 'back.inOut'
-    })
+    });
+  }
+
+  playPause() {
+    if(this.tl.paused()) {
+      this.tl.play();
+    }
+    else {
+      this.tl.pause();
+    }
+  }
+
+  play() {
+    this.tl.play();
+  }
+
+  pause() {
+    this.tl.pause();
+  }
+
+  resume() {
+    this.tl.resume();
+  }
+
+  reverse() {
+    this.tl.reverse();
+  }
+
+  restart() {
+    this.tl.restart();
   }
 }
