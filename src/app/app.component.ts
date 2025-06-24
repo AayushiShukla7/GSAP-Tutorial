@@ -11,11 +11,16 @@ import { gsap } from 'gsap';
 export class AppComponent implements AfterViewInit {
   
   title = 'GSAP-Tutorial';
+  
   @ViewChild('blueBox') blueBox!: ElementRef;
+  @ViewChild('greenBox') greenBox!: ElementRef;
+  @ViewChild('redBox') redBox!: ElementRef;
+  @ViewChild('yellowBox') yellowBox!: ElementRef;
     
   ngAfterViewInit() {
     //gsap.registerPlugin();
 
+    // gsap - to Demo
     gsap.to(this.blueBox.nativeElement, { 
       x: 250,
       repeat: -1,
@@ -25,10 +30,54 @@ export class AppComponent implements AfterViewInit {
       easy: 'bounce.out'
     });
 
-    // const tl = gsap.timeline();
+    // gsap - from Demo
+    gsap.from(this.greenBox.nativeElement, { 
+      x: 250,
+      repeat: -1,
+      yoyo: true,
+      rotation: 360,
+      duration: 2,
+      easy: 'power1.inOut'
+    });
 
-    // tl.to(this.box.nativeElement, { duration: 1, x: 100, opacity: 1 })
-    //   .to(this.box.nativeElement, { duration: 1, rotation: 360 })
-    //   .to(this.box.nativeElement, { duration: 1, scale: 2 });
+    // gsap - fromTo Demo
+    gsap.fromTo(this.redBox.nativeElement, { 
+      x: 0,
+      rotation: 0,
+      borderRadius: '0%'
+    },
+    { 
+      x: 250,      
+      rotation: 360,
+      borderRadius: '100%',
+      duration: 2,
+      easy: 'expoScale(0.5,7,none)',
+      repeat: -1,
+      yoyo: true,
+    });
+
+    // gsap - timeline Demo
+    const tl = gsap.timeline({
+      repeat: -1,
+      repeatDelay: 1,
+      yoyo: true
+    });
+
+    tl.to(this.yellowBox.nativeElement, { 
+      x: 250,
+      rotation: 360,
+      borderRadius: '100%',
+      duration: 2,
+      ease: 'back.inOut'
+    });
+
+    tl.to(this.yellowBox.nativeElement, {
+      x: 500,
+      scale: 1,
+      rotation:360,
+      borderRadius: '8px',
+      duration: 2,
+      ease: 'back.inOut'
+    })
   }
 }
