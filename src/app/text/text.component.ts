@@ -21,7 +21,9 @@ export class TextComponent implements AfterViewInit {
       ease: 'power1.inOut',
       opacity: 1,
       y: 0,
-      duration: 1.5,
+      duration: 2,
+      repeat: -1,
+      yoyo: true
     });
 
     // Animate paragraph

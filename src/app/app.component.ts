@@ -36,8 +36,6 @@ export class AppComponent implements AfterViewInit {
   });
     
   ngAfterViewInit() {
-    gsap.registerPlugin();
-
     // gsap - to Demo
     gsap.to(this.blueBox.nativeElement, { 
       x: 250,
