@@ -1,10 +1,14 @@
 import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { gsap } from 'gsap';
+import { gsap, Power1 } from 'gsap';
+import { ScrollTriggerComponent } from './scroll-trigger/scroll-trigger.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [
+    RouterOutlet,
+    ScrollTriggerComponent
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -17,6 +21,10 @@ export class AppComponent implements AfterViewInit {
   @ViewChild('redBox') redBox!: ElementRef;
   @ViewChild('yellowBox') yellowBox!: ElementRef;
   @ViewChild('staggerBox') staggerBox!: ElementRef;  
+
+  constructor() {
+    gsap.registerPlugin(Power1);
+  }
 
   // gsap - timeline declaration and initialization
   tl = gsap.timeline({
@@ -93,7 +101,7 @@ export class AppComponent implements AfterViewInit {
 
     //gsap - stagger Demo
     gsap.to('.stagger-box', { 
-      y: 200,
+      y: 140,
       borderRadius: '100%',      
       rotation: 360,      
       repeat: -1,
