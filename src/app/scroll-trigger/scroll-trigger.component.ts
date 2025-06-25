@@ -10,8 +10,6 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 })
 export class ScrollTriggerComponent implements AfterViewInit {
 
-  // @ViewChild('scrollPink') scrollPink!: ElementRef;
-  // @ViewChild('scrollOrange') scrollOrange!: ElementRef;
   @ViewChildren('myDivs') myDivElements!: QueryList<ElementRef>;
 
   ngAfterViewInit(): void {
@@ -33,7 +31,7 @@ export class ScrollTriggerComponent implements AfterViewInit {
 
     // Access the nativeElement of each div
     this.myDivElements.forEach((div, index) => {
-      console.log(div.nativeElement);
+      //console.log(div.nativeElement);
 
       // You can now manipulate the div's properties or add event listeners
       gsap.to(div.nativeElement, {
